@@ -142,12 +142,50 @@ describe('Calculator', () => {
       expect(practice.Calculator.divide(8,-5)).toBe(-1.6);
     });
 
+    it('0.33 / 4 = 0.08', () => {
+      expect(practice.Calculator.divide(0.33,4)).toBe(0.08);
+    });
+
     it('0 / 3 = 0', () => {
       expect(practice.Calculator.divide(0,3)).toBe(0);
     });
 
     it('3 / 0 returns an error', () => {
       expect(() => practice.Calculator.divide(3,0)).toThrow(Error);
+    });
+  });
+
+  describe('Multiplication', () => {
+    it('No arguments returns error', () => {
+      expect(() => practice.Calculator.multiply()).toThrow(Error);
+    });
+
+    it('Only one argument returns error', () => {
+      expect(() => practice.Calculator.multiply(1)).toThrow(Error);
+    });
+
+    it('3 * 4 = 12', () => {
+      expect(practice.Calculator.multiply(3,4)).toBe(12);
+    });
+
+    it('3 * 1.5 = 4.5', () => {
+      expect(practice.Calculator.multiply(3,1.5)).toBe(4.5);
+    });
+
+    it('-3 * 4 = -12', () => {
+      expect(practice.Calculator.multiply(-3,4)).toBe(-12);
+    });
+
+    it('-3 * -4 = 12', () => {
+      expect(practice.Calculator.multiply(-3,-4)).toBe(12);
+    });
+
+    it('4 * 0.33 = 1.32', () => {
+      expect(practice.Calculator.multiply(4,0.33)).toBe(1.32);
+    });
+
+    it('0 * 4 = 0', () => {
+      expect(practice.Calculator.multiply(0,4)).toBe(0);
     });
   });
 });

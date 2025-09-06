@@ -21,7 +21,7 @@ export function reverseString(word = '') {
 export class Calculator {
   static add(num1, num2) {
     if(typeof num1 == 'number' && typeof num2 == 'number') {
-      return Math.floor((num1 + num2) * 100) / 100;
+      return Math.round((num1 + num2) * 100) / 100;
     } else {
       throw new Error('add() requires two arguments.');
     }
@@ -29,7 +29,7 @@ export class Calculator {
 
   static subtract(num1, num2) {
     if(typeof num1 == 'number' && typeof num2 == 'number') {
-      return Math.floor((num1 - num2) * 100) / 100;
+      return Math.round((num1 - num2) * 100) / 100;
     } else {
       throw new Error('subtract() requires two arguments');
     }
@@ -37,11 +37,19 @@ export class Calculator {
 
   static divide(num1, num2) {
     if(typeof num1 == 'number' && typeof num2 == 'number' && num2 !== 0) {
-      return Math.floor((num1 / num2) * 100) / 100;
+      return Math.round((num1 / num2) * 100) / 100;
     } else if(num2 === 0) { 
       throw new Error('Cannot divide by zero')
     } else {
       throw new Error('divide() requires two arguments');
+    }
+  }
+
+  static multiply(num1, num2) {
+    if(typeof num1 == 'number' && typeof num2 == 'number') {
+      return Math.round((num1 * num2) * 100) / 100;
+    } else {
+      throw new Error('multiply() requires two arguments');
     }
   }
 }

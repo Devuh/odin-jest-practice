@@ -113,11 +113,41 @@ describe('Calculator', () => {
     });
 
     it('0.4 - 0.36 = 0.04', () => {
-      expect(practice.Calculator.subtract(0.4,0.36)).toBeCloseTo(0.04);
+      expect(practice.Calculator.subtract(0.4,0.36)).toBe(0.04);
     });
 
     it('-1 - -5 = 4', () => {
       expect(practice.Calculator.subtract(-1,-5)).toBe(4);
+    });
+  });
+
+  describe('Division', () => {
+    it('No arguments returns error', () => {
+      expect(() => practice.Calculator.divide()).toThrow(Error);
+    });
+
+    it('Only one argument returns error', () => {
+      expect(() => practice.Calculator.divide(1)).toThrow(Error);
+    });
+
+    it('3 / 1 = 3', () => {
+      expect(practice.Calculator.divide(3,1)).toBe(3);
+    });
+
+    it('-1 / -3 = 0.33', () => {
+      expect(practice.Calculator.divide(-1,-3)).toBe(0.33);
+    });
+
+    it('8 / -5 = 1.6', () => {
+      expect(practice.Calculator.divide(8,-5)).toBe(-1.6);
+    });
+
+    it('0 / 3 = 0', () => {
+      expect(practice.Calculator.divide(0,3)).toBe(0);
+    });
+
+    it('3 / 0 returns an error', () => {
+      expect(() => practice.Calculator.divide(3,0)).toThrow(Error);
     });
   });
 });

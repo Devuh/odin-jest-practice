@@ -67,3 +67,31 @@ describe('Reverse String', () => {
     expect(practice.reverseString('12345')).toBe('54321');
   });
 });
+
+describe('Calculator', () => {
+  describe('Addition', () => {
+    it('No arguments returns error', () => {
+      expect(() => practice.Calculator.add()).toThrow(Error);
+    });
+
+    it('Only one argument returns error', () => {
+      expect(() => practice.Calculator.add(1)).toThrow(Error);
+    });
+
+    it('0 + 0 = 0', () => {
+      expect(practice.Calculator.add(0,0)).toBe(0);
+    });
+
+    it('1 + 3 = 4', () => {
+      expect(practice.Calculator.add(1,3)).toBe(4);
+    });
+
+    it('0.4 + 0.36 = 0.76', () => {
+      expect(practice.Calculator.add(0.4,0.36)).toBe(0.76);
+    });
+
+    it('-1 + -5 = -6', () => {
+      expect(practice.Calculator.add(-1,-5)).toBe(-6);
+    });
+  });
+});

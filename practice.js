@@ -17,3 +17,13 @@ export function reverseString(word = '') {
   
   return reversedWord.join('');
 }
+
+export class Calculator {
+  static add(num1, num2) {
+    if(typeof num1 == 'number' && typeof num2 == 'number') {
+      return num1 + num2;
+    } else {
+      throw new Error('add() requires two arguments.');
+    }
+  }
+}

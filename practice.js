@@ -6,3 +6,14 @@ export function capitalize(word = '') {
   }
   return word;
 }
+
+export function reverseString(word = '') {
+  let reversedWord = [];
+
+  word = word.split('');
+  word.forEach((letter) => {
+    reversedWord.unshift(letter);
+  });
+  
+  return reversedWord.join('');
+}

@@ -37,3 +37,33 @@ describe('Capitalize', () => {
     expect(practice.capitalize('1word')).toBe('1word');
   });
 });
+
+describe('Reverse String', () => {
+  it('Missing argument returns empty string', () => {
+    expect(practice.reverseString()).toBe('');
+  });
+
+  it('Empty string returns itself', () => {
+    expect(practice.reverseString('')).toBe('');
+  });
+
+  it('Word returns droW', () => {
+    expect(practice.reverseString('Word')).toBe('droW');
+  });
+
+  it('racecar returns racecar', () => {
+    expect(practice.reverseString('racecar')).toBe('racecar');
+  });
+
+  it('w returns w', () => {
+    expect(practice.reverseString('w')).toBe('w');
+  });
+
+  it('two words returns sdrow out', () => {
+    expect(practice.reverseString('two words')).toBe('sdrow owt');
+  });
+
+  it('12345 returns 54321', () => {
+    expect(practice.reverseString('12345')).toBe('54321');
+  });
+});

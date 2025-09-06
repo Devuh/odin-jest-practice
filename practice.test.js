@@ -94,4 +94,30 @@ describe('Calculator', () => {
       expect(practice.Calculator.add(-1,-5)).toBe(-6);
     });
   });
+
+  describe('Subtraction', () => {
+    it('No arguments returns error', () => {
+      expect(() => practice.Calculator.subtract()).toThrow(Error);
+    });
+
+    it('Only one argument returns error', () => {
+      expect(() => practice.Calculator.subtract(1)).toThrow(Error);
+    });
+
+    it('0 - 0 = 0', () => {
+      expect(practice.Calculator.subtract(0,0)).toBe(0);
+    });
+
+    it('1 - 3 = -2', () => {
+      expect(practice.Calculator.subtract(1,3)).toBe(-2);
+    });
+
+    it('0.4 - 0.36 = 0.04', () => {
+      expect(practice.Calculator.subtract(0.4,0.36)).toBeCloseTo(0.04);
+    });
+
+    it('-1 - -5 = 4', () => {
+      expect(practice.Calculator.subtract(-1,-5)).toBe(4);
+    });
+  });
 });

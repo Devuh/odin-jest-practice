@@ -26,4 +26,12 @@ export class Calculator {
       throw new Error('add() requires two arguments.');
     }
   }
+
+  static subtract(num1, num2) {
+    if(typeof num1 == 'number' && typeof num2 == 'number') {
+      return num1 - num2;
+    } else {
+      throw new Error('subtract() requires two arguments');
+    }
+  }
 }

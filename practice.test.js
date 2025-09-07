@@ -189,3 +189,33 @@ describe('Calculator', () => {
     });
   });
 });
+
+describe('Caesar Cipher', () => {
+  it('No arguments returns error', () => {
+    expect(() => practice.Calculator.multiply()).toThrow(Error);
+  });
+
+  it('Only one argument returns error', () => {
+    expect(() => practice.Calculator.multiply('abc')).toThrow(Error);
+  });
+
+  it('abc with shift 2 returns cde', () => {
+    expect(practice.caesarCipher('abc',2)).toBe('cde');
+  });
+
+  it('HeLLo with shift 3 returns KhOOr', () => {
+    expect(practice.caesarCipher('HeLLo',3)).toBe('KhOOr');
+  });
+
+  it('Hello, World! with shift 3 returns Khoor, Zruog!', () => {
+    expect(practice.caesarCipher('Hello, World!',3)).toBe('Khoor, Zruog!')
+  });
+
+  it('XyZ with shift 3 returns AbC', () => {
+    expect(practice.caesarCipher('XyZ',3)).toBe('AbC');
+  });
+
+  it('XyZ! with shift 9', () => {
+    expect(practice.caesarCipher('XyZ!',9)).toBe('GhI!');
+  });
+});

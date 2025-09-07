@@ -53,3 +53,31 @@ export class Calculator {
     }
   }
 }
+
+export function caesarCipher(word, shift) {
+  if(!word || !shift) throw new Error('caesarCipher() requires two arguments');
+
+  let cipher = [];
+  for(let i = 0; i < word.length; i++) {
+    let character = word.charAt(i);
+    let charCode = character.charCodeAt(0) + shift;
+    while(charCode >= 97 && character.charCodeAt(0) <= 90) charCode -= 26;
+    if(character.match(/[a-z]/i) && (String.fromCharCode(charCode).match(/[a-z]/i))) {
+      character = String.fromCharCode(charCode);
+    } else if(character.match(/[a-z]/i)) {
+      charCode -= 26;
+      character = String.fromCharCode(charCode);
+    }
+    cipher.push(character);
+    // let character = word.charAt(i);
+    // if(character.match(/[a-z]/) && !String.fromCharCode(character.charCodeAt(0)+ shift).match(/[a-z]i/)) {
+    //   character = String.fromCharCode(character.charCodeAt(0) + shift);
+    // } else if(character.match(/[A-Z]/) && !String.fromCharCode(character.charCodeAt(0)+ shift).match(/[a-z]i/)) {
+    //   character = String.fromCharCode(character.charCodeAt(0) + shift);
+    // } else if(character.match(/[a-z]i/)) {
+    //   character = String.fromCharCode(character.charCodeAt(0) + shift - 25);
+    // }
+  }
+
+  return cipher.join('');
+}

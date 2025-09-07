@@ -69,15 +69,26 @@ export function caesarCipher(word, shift) {
       character = String.fromCharCode(charCode);
     }
     cipher.push(character);
-    // let character = word.charAt(i);
-    // if(character.match(/[a-z]/) && !String.fromCharCode(character.charCodeAt(0)+ shift).match(/[a-z]i/)) {
-    //   character = String.fromCharCode(character.charCodeAt(0) + shift);
-    // } else if(character.match(/[A-Z]/) && !String.fromCharCode(character.charCodeAt(0)+ shift).match(/[a-z]i/)) {
-    //   character = String.fromCharCode(character.charCodeAt(0) + shift);
-    // } else if(character.match(/[a-z]i/)) {
-    //   character = String.fromCharCode(character.charCodeAt(0) + shift - 25);
-    // }
   }
 
   return cipher.join('');
+}
+
+export function analyzeArray(array) {
+  if(array.length === 0) throw new Error('Array must have at least one item');
+
+  let average, min, max, length;
+
+  let sum = 0;
+  array.forEach((item) => {
+    sum += item;
+  });
+  average = sum / array.length;
+
+  min = Math.min(...array);
+  max = Math.max(...array);
+
+  length = array.length;
+
+  return {'average': average, 'length': length, 'max': max, 'min': min}
 }

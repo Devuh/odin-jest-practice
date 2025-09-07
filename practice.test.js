@@ -219,3 +219,25 @@ describe('Caesar Cipher', () => {
     expect(practice.caesarCipher('XyZ!',9)).toBe('GhI!');
   });
 });
+
+describe('Analyze Array', () => {
+  it('Long array', () => {
+    expect(practice.analyzeArray([1,8,3,4,2,6])).toStrictEqual({average: 4, min: 1, max: 8, length: 6});
+  });
+
+  it('Array with no items', () => {
+    expect(() => practice.analyzeArray([])).toThrow(Error);
+  });
+
+  it('Array with one item', () => {
+    expect(practice.analyzeArray([4])).toStrictEqual({average: 4, min: 4, max: 4, length: 1});
+  });
+
+  it('Array with negative numbers', () => {
+    expect(practice.analyzeArray([-4,-5,-6,-2])).toStrictEqual({average: -4.25, min: -6, max: -2, length: 4});
+  });
+
+  it('Array with decimal numbers', () => {
+    expect(practice.analyzeArray([2.5,3.75,1.25])).toStrictEqual({average: 2.5, min: 1.25, max: 3.75, length: 3})
+  });
+});

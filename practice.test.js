@@ -215,8 +215,12 @@ describe('Caesar Cipher', () => {
     expect(practice.caesarCipher('XyZ',3)).toBe('AbC');
   });
 
-  it('XyZ! with shift 9', () => {
-    expect(practice.caesarCipher('XyZ!',9)).toBe('GhI!');
+  it('XyZ! with shift 30 returns BcD!', () => {
+    expect(practice.caesarCipher('XyZ!',30)).toBe('BcD!');
+  });
+
+  it('XyZ! with shift -30 returns TuV!', () => {
+    expect(practice.caesarCipher('XyZ!',-30)).toBe('TuV!');
   });
 });
 

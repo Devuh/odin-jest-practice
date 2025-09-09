@@ -54,21 +54,39 @@ export class Calculator {
   }
 }
 
+function createLetterObject(letter) {
+  let code = letter.charCodeAt(0);
+
+  if(code >= 65 && code <= 90) {
+    return {'char': letter, 'code': code, 'type': 'upper'};
+  } else if(code >= 97 && code <= 122) {
+    return {'char': letter, 'code': code, 'type': 'lower'};
+  } else {
+    return {'char': letter, 'code': code, 'type': 'symbol'};
+  }
+}
+
 export function caesarCipher(word, shift) {
   if(!word || !shift) throw new Error('caesarCipher() requires two arguments');
 
   let cipher = [];
   for(let i = 0; i < word.length; i++) {
-    let character = word.charAt(i);
-    let charCode = character.charCodeAt(0) + shift;
-    while(charCode >= 97 && character.charCodeAt(0) <= 90) charCode -= 26;
-    if(character.match(/[a-z]/i) && (String.fromCharCode(charCode).match(/[a-z]/i))) {
-      character = String.fromCharCode(charCode);
-    } else if(character.match(/[a-z]/i)) {
-      charCode -= 26;
-      character = String.fromCharCode(charCode);
+    let letter = createLetterObject(word.charAt(i));
+    switch (letter.type) {
+      case 'upper':
+        letter.code += shift;
+        while(letter.code > 90) letter.code -= 26;
+        while(letter.code < 65) letter.code += 26;
+        letter.char = String.fromCharCode(letter.code);
+        break;
+      case 'lower':
+        letter.code += shift;
+        while(letter.code > 122) letter.code -= 26;
+        while(letter.code < 97) letter.code += 26;
+        letter.char = String.fromCharCode(letter.code);
+        break;
     }
-    cipher.push(character);
+    cipher.push(letter.char);
   }
 
   return cipher.join('');
@@ -92,3 +110,5 @@ export function analyzeArray(array) {
 
   return {'average': average, 'length': length, 'max': max, 'min': min}
 }
+
+console.log(caesarCipher('XyZ!',3));
